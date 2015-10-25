@@ -1,0 +1,239 @@
+﻿== ReanEmu ==
+
+ReanEmu es un emulador creado con la unión de varios repositorios reconocidos y
+código nuestro con el afán de complementarlos y completarlos a todos en
+un único emulador que pueda brindar código útil, actualizado y estable.
+
+Hemos generado una metodología y planificación interna la cual nos permite estar
+al día en las actualizaciones y mejoras de trinitycore, parches propios y de
+repositorios conocidos, puedes encontrarla en el archivo PLANIFICACION, si alguna
+sugerencia y/o aporte que quieras darnos tienes la mayor bienvenida en el equipo
+de los programadores de este repositorio basado en trinitycore y sus forks.
+
+Actualizaciones y novedades en twitter: http://twitter.com/ReanEmu
+
+Gracias a quienes hacen este proyecto posible y su respectivo crédito a:
+
+ Copyright (C) TrinityCore (http://www.trinitycore.org)
+ Copyright (C) Eilo (https://github.com/eilo)
+ Copyright (C) Muzashi (https://github.com/Muzashi)
+ Copyright (C) Jildor (https://github.com/Jildor)
+ Copyright (C) Rinsewind (https://github.com/Rinsewind)
+ Copyright (C) Evef (https://github.com/Evef)
+ Copyright (C) Jar (https://github.com/JarDv)
+ Copyright (C) Saitama (https://github.com/cagoncevatt)
+ Copyright (C) Hyxon (https://github.com/Hyxon)
+ Copyright (C) Eissesh (https://github.com/Eissesh)
+ Copyright (C) Demonid (https://github.com/Demonid)
+ Copyright (C) Cinde (https://github.com/Cinde)
+ Copyright (C) ReanEmu (https://github.com/ComunidadRean/ReanEmu)
+
+
+
+ReanEmu posee muchos fixes y mejoras a base de algunos repos y autores muy
+conocidos además de los nuestros propios, este documento detalla los componentes,
+parches y/o código que contiene dentro este emulador de manera resumida:
+
+#########
+#ReanEmu#
+#########
+Milestone0.0: Reiniciando el repo y readaptando cosas varias, inclusion de nuevos
+              developers en git y la inclusion de texto de planeacion para union 
+              eficiente de codigo reestructurando modo de trabajo y organizando 
+              carpetas, branches, etc, adicion de codigo utilitario en general 
+              para complemento del nucleo y funciones de soporte.
+Milestone1.0: Jugabilidad en general, adecuaciones de codigo vario en mapas
+              comportamiento de bgs, arenas, players-units-pets y mejoras.
+Milestone2.0: Mejoras en Instances y dungeons, escencialmente para darles funcionalidad
+              y detalles para tenerlas lo mas cercano a blizzlike, solucion de bugs
+              relativos a las mismas, implementacion de nuevas scripts, prioridad tlk.
+Milestone3.0: Arreglos a Spells, sobre todo para estabilidad del pve y del
+              pvp dentro de los reinos.
+Milestone4.0: Arreglos en quests, y cadenas de mision, esto incluye scripts
+              en C++ y SmartAI.
+Milestone5.0: Traducciones, e inclusion de varios dentro de tablas y strings
+              del emulador, ya sea en c++ o en sqls.
+Milestone6.0: Arreglos en eventos de mundo, logros y varios, con SAI, c++ y sql para
+              items, criaturas, spells, etc. Que no encajen en las demas milestones.
+Milestone7.0: Código custom, utilitario y caracteristicas interesantes varias.
+
+
+############################
+# Trintitycore compatible: #
+############################
+
+
+###############
+# Adicionales #
+###############
+0.1 - 29/08/2015: Agregado archivo Sqlcombinado script para unificar los sqls por Jar
+0.2 - 29/08/2015: Agregada la version mas reciente y estable de la base de datos world TDB335.55 por Jar
+0.3 - 30/08/2015: Core/Ticket: Actualizado el sistema de ticket response por Eilo
+0.4 - 30/08/2015: External Mail por Varios
+0.5 - 31/08/2015: Implementado Rates Weekend por Kline
+0.6 - 02/09/2015: Implementado GetCompletedEncountersReadable & GetTotalEncountersReadable por Eilo
+0.7 - 02/09/2015: Implementado RaidInfo Announce & Log por Eilo
+0.8 - 03/09/2015: Implementado CharacterHistory con logs extendidos en db por Eilo
+0.9 - 06/09/2015: GetGearScore method scripted by Eilo
+0.10 - 06/09/2015: GetPrimarySpec method scripted by Eilo
+0.11 - 06/09/2015: GetPossibleRole method scripted by Eilo
+0.12 - 06/09/2015: Adding GetGroupByInstanceId() method, including a new Prepared Statement, this is a very new feature hasnt any core by Eilo
+0.13 - 06/09/2015: Implementado Player Info & Raid Info commands por Eilo adaptado por Evef
+0.14 - 06/09/2015: Implementado Duel Reset script por Eilo y Mauvas
+0.15 - 09/09/2015: Implementado Gm command log en DB por Eilo
+0.16 - 12/09/2015: Implementado PerformanceLog por Eilo
+0.17 - 12/09/2015: Implementado Sistema de xprates por Eilo adaptado por Evef
+0.18 - 15/09/2015: Implementado IsUnderCrowdControlEffects funcion Phantons y Mauvas
+
+
+###############
+# Jugabilidad #
+###############
+1.1 - 13/09/2015: Armas s3 (vengeful) añadidas a Meminie en filospada por Angelinna
+1.2 - 13/09/2015: Armas s2 (merciless) añadidas a Olus en queldanas por Angelinna
+1.3 - 15/09/2015: Core/LFG: Join LFG channel without being on a city by Opcode187
+1.4 - 15/09/2015: Core/Misc: Bindeo instance players que se salen y lotean por Tobmaps
+1.5 - 15/09/2015: Core/Misc: Prevent exploit login inside instances by Tobmaps
+1.6 - 15/09/2015: Core/Misc: Low lvl will not gain exp in Northrend by Vlad
+1.8 - 15/09/2015: Core/Pets: Pets size adjustments by Eze
+1.9 - 15/09/2015: Core/Pets: Pets stamina adjustments by S@m
+1.10 - 15/09/2015: Core/Misc: Opening a gameobject (flag) under absorb effects should result in an interrupt by Hispano
+1.11 - 15/09/2015: Fix exploit eat/drink in mount by Jildor
+1.12 - 15/09/2015: Fix exploit Alt + F4 cuando el encuentro está en progreso y estás en un vehículo (Fix ICC LK valkyrs) por zouzoul
+1.13 - 15/09/2015: Core/Spells: Fix Root auras, ahora eliminarán los efectos de sigilo por elecyb
+1.15 - 15/09/2015: Dalaran Sewers: Corregida la posición de Shadow Sight en la arena por Gildor
+1.16 - 15/09/2015: DB/BG: Improving bg weight & min-max players on random bg queues by Eilo
+1.18 - 15/09/2015: DB/Quest: Misiones semanales de Dalaran no se pueden compartir por Rincewind
+1.20 - 15/09/2015: DB/Misc: Propiedades de puertas de las arenas por Walkline
+1.21 - 15/09/2015: Core/Misc: Each player has to have normal achievement to get heroic mode by Eilo
+1.22 - 15/09/2015: Core/Vehicles: Exclude player from vehicle gear scaling effect por Xanvial
+1.23 - 15/09/2015: Fix exploit al entrar en arena con fear, ahora entras en la posición que debes y no en el medio por hermida
+1.25 - 15/09/2015: Core/Pets: Pets will not attack when they are under cc effects by Phantons
+1.26 - 15/09/2015: Armas s6 (Furious) y s7 (Relentless) añadidas en tanaris a los npcs correspondientes por Eilo
+1.27 - 15/09/2015: Core/Misc: Corregido el comando banchar por Eilo
+1.28 - 25/09/2015: Fixed taunt effects interrupting channeled spells by Xiledria
+1.29 - 26/09/2015: Core/Misc: Las spell_area ahora solo se verifican cuando el player esta en el area correspondiente para evitar problemas de fases con el sistema de quest por Jar
+1.30 - 27/09/2015: Wintergrasp: Todos los npc de la batalla spawneados por DB, eliminado codigo innecesario por Jar
+1.31 - 27/09/2015: Wintergrasp: La reliquia ahora podra ser activada por los atacantes cuando destruyan la ultima puerta de la fortaleza por Jar
+1.32 - 27/09/2015: Wintergrasp: Los edificios seran reconstruidos tambien al finalizar la batalla para evitar errores visuales por Jar
+1.33 - 27/09/2015: Wintergrasp: Tenacity se actualizara tambien cuando un jugador abandone la batalla por Jar
+1.34 - 27/09/2015: Wintergrasp: Ajuste en el cementerio de la base horda para evitar conflicto con el cementerio que pertenece a Broken Temple Workshop por Jar
+1.35 - 27/09/2015: Wintergrasp: Corregido los vehicle teleporter en la fortaleza por Jar
+1.36 - 27/09/2015: Wintergrasp: Cuando una base es tomada tambien actualizamos inmediatamente los gameObjects relacionados por Jar
+1.37 - 28/09/2015: Core/Stats: Mejorada la formula de Block Value, ahora el daño de hechizos como Shield Slam deberia ser el correcto by Demonid
+1.38 - 23/10/2015: Wintergrasp: Permitir la spell Swift Flying Wisp para los elfos nocturnos en Wintergrasp por Jar
+
+
+########################
+# Dungeons e Instances #
+########################
+2.2 - IcecrownCitadel
+2.2.1 - 15/09/2015: LordMarrowgar: Porteado y mejorado by Demonid
+2.2.2 - 15/09/2015: LadyDeathwhisper: Porteado y mejorado by Demonid
+2.2.3 - 15/09/2015: GunshipBattle: Fix mago siendo interrumpido by Demonid
+2.2.4 - 15/09/2015: DeathbringerSaurfang: Porteado y mejorado by Demonid
+2.2.5 - 15/09/2015: Rotface: Porteado y mejorado by Demonid
+2.2.6 - 15/09/2015: Festergut: Porteado y mejorado by Demonid
+2.2.7 - 15/09/2015: ProfessorPutricide: Porteado y mejorado by Demonid
+2.2.8 - 15/09/2015: BloodCouncil: Porteado y mejorado by Demonid
+2.2.9 - 15/09/2015: Lanathel: Porteado y mejorado by Demonid
+2.2.10 - 20/09/2015: LichKing: Porteado y mejorado by Demonid
+2.2.11 - 15/09/2015: Valithria: Porteado y mejorado by Demonid
+2.2.12 - 15/09/2015: Sindragosa: Porteado y mejorado by Demonid
+2.2.14 - 19/10/2015: LichKing: Script para traer a los players del fondo del abismo antes de la secuencia de outro by Eilo
+
+
+2.9 - TheRubySanctum
+2.9.1 - 05/09/2015: RubySanctum: El circulo de fuego de Halion no demorará tanto en aparecer por Evef
+2.9.2 - 05/09/2015: RubySanctum: Corregido el aggro inicial por Evef
+2.9.3 - 05/09/2015: RubySanctum: La fase 2 empezara al 70%, corregida vida de twilight_halion para el inicio de la fase 2 e interfase de la 2 a 3 Por Evef
+2.9.4 - 05/09/2015: RubySanctum: Durante el encuentro con Halion nadie se podrá quedar fuera de combate una vez empieza por Evef
+2.9.5 - 05/09/2015: RubySanctum: Halion comprobara la gente viva y en su rango de aggro para evitar quedarse en combate por Dolanpls.
+2.9.6 - 05/09/2015: RubySanctum: Halion invocara adds en las dificultades heroicas por Dolanpls
+2.9.7 - 05/09/2015: RubySanctum: El funcionamiento de los orbs en Hero será correcto por Evef
+2.9.8 - 05/09/2015: RubySanctum: Retoques varios a los adds de Halion en hero y añadido daño por Evef
+2.9.9 - 05/09/2015: RubySanctum: Halion twilight cutter dará el aviso 3 segundos antes de lanzarlo por Eilo
+2.9.10 - 05/09/2015: RubySanctum: Ambos Halion empezarán la fase 2 y 3 con la misma vida por Evef.
+2.9.11 - 05/09/2015: RubySanctum: Reescrita la Corporeality por Evef
+2.9.12 - 06/09/2015: RubySanctum: Escondiendo a los dummies de Halion por Evef
+2.9.13 - 06/09/2015: RubySanctum: Añadido delay de 2s al spawnear adds y mejorado el despawn por Evef
+2.9.14 - 06/09/2015: RubySanctum: Combustion y Consumption escalará correctamente su radio de daño por Evef.
+2.9.15 - 06/09/2015: RubySanctum: Fiery Combustion y Soul Consumption escalará correctamente su radio de daño y efecturarán correctamente los effects por Evef
+2.9.16 - 06/09/2015: RubySanctum: Ajustados diferentes timers por Eilo y Evef
+2.9.17 - 06/09/2015: RubySanctum: Corregido el spawn de los Twilight Portal en relación a la fase de Halion por Evef y Saitama
+2.9.18 - 06/09/2015: RubySanctum: Corregida el aura Awaken Flames, ahora aumenta correctamente el daño de los Living Embers por Muzashi
+2.9.19 - 06/09/2015: RubySanctum: Ajustado daño a melee de Halion por Evef
+2.9.20 - 07/09/2015: RubySanctum: Evitando que compartan daño los dos Halions en phase tres por Evef
+2.9.21 - 07/09/2015: RubySanctum: Evitando crash si faltan orbes por Evef
+2.9.22 - 14/09/2015: RubySanctum: Evitando que Awaken Flames le afecten a los Living Inferno por Evef
+2.9.23 - 14/09/2015: RubySanctum: Actualizada la forma de las Meteor Flames para que salgan random por Evef
+2.9.24 - 17/09/2015: RubySanctum: La corporeality funcionará para el lado que debe por Evef
+2.9.25 - 18/09/2015: RubySanctum: Ajustadas inmunidades y tiempos de respawn por Eilo
+2.9.26 - 10/10/2015: RubySanctum: Reparados Warnings en Halion by Demonid
+
+
+###############################
+# Hechizos, Glifos y Talentos #
+###############################
+3.1 - 28/09/2015: Warrior: Bladestorm, ahora se cortará al desarmar al guerrero por Demonid
+3.2 - 13/09/2015: Warrior: Fix spell Bladestorm, ahora será inmune a Cyclone del Druida por Gildor
+3.3 - 13/09/2015: Sacerdote: shadowform arreglado bugs de casteo por Garyfisher
+3.5 - 28/09/2015: Priest: Shadowfiend y Mana Leech ya no seran afectados por LoS by Demonid
+3.6 - 28/09/2015: Warrior: Bladestorm, ahora podras cambiar de armas sin cancelar el efecto by Demonid
+3.7 - 28/09/2015: Hunter: Master's Call ahora no podra ser utilizada si la pet esta fuera de LoS o muerta como tampoco ofrecera inmunidad a stun si se esta bajos los efectos del hechizo by Demonid
+3.8 - 28/09/2015: Warlock: Felhunter Spell Lock ahora ademas de interrupir un hechizo tambien silenciara la escuela de magia by Demonid
+3.9 - 28/09/2015: Hunter: Autoshot ahora funcionara correctamente despues de perder y recuperar vision del enemigo by Demonid
+3.10 - 28/09/2015: Mage: Ice Block ahora reiniciara su cooldown correctamente by Demonid
+3.11 - 28/09/2015: Mage: Mirror Image ahora no atacan a objetivos que están bajo los efectos de Polymorph by Demonid
+3.12 - 28/09/2015: Druid: Nature Grasp ahora tendra un ICD de 2 segundos by Demonid
+3.13 - 08/10/2015: Enchants: Corrección de varios encantamientos perjudiciales en PvP por Demonid
+3.14 - 09/10/2015: Hunter: Cobra Strikes ahora funcionara correctamente por Jildor
+3.15 - 10/10/2015: Enchants: Limitado el proc de algunos Enchants segun el nivel del objetivo by Demonid based on Eilo code
+3.16 - 11/10/2015: Exploit: Venomhide Poison y otros hechizos de Items que no deberian beneficiarse de Spell Power by Demonid
+3.17 - 19/10/2015: Shaman: Tidal Waves y Riptide ya no se bugearan by Demonid
+3.18 - 23/10/2015: Mago: Fix spell Hot Streak, ahora se eliminará al lanzar piroexplosión y no al impactar al objetivo con ella por Gildor
+3.19 - 23/10/2015: Paladin: Fix spell Hand of Protection, ahora no podrá ser usada sobre otro player si el Paladin esta CCeado por Soneh
+3.20 - 23/10/2015: DK: Fix Spell Chilblains, ahora su efecto se eliminará si se disipa Frost Fever por elecyb y arreglado por Gildor
+3.21 - 23/10/2015: Hunter: Fix spell Master's Call, ahora eliminará el efecto root al objetivo aunque la pet esté rooted por Gildor
+3.22 - 23/10/2015: Warlock: Fixed talent Improved Succubus by tobmaps
+3.23 - 23/10/2015: Warlock: Fixed glyph of succubus by Vincent-Michael
+3.24 - 23/10/2015: DK: Fix spell Death Grip, ahora no atraerá a los enemigos afectados por auras con efecto Root y Death Grip ahora llevará al DK hacía el objetivo si este refleja la spell por Gildor
+
+
+#################
+# Items y Tiers #
+#################
+
+
+############
+# Misiones #
+############
+- Misiones de Clases -
+4.0.1 - 13/09/2015: Clases: El Núcleo de Kroshius (Brujo) por Muzashi adaptado por DevPrime
+4.0.2 - 28/09/2015: Clases: La Reyerta (Guerrero) por Muzashi
+- Especiales -
+4.1.1 - 26/09/2015: Quel'Delar: Isla de Quel'Danas spawns y fases por Muzashi readaptado por Jar
+4.1.2 - 26/09/2015: Quel'Delar: Thalorien Buscalba por Muzashi reescrito por Jar
+4.1.3 - 26/09/2015: Quel'Delar: La Purificación de Quel'Delar por Muzashi reescrito por Jar
+
+
+################
+# Traducciones #
+################
+
+
+##########
+# Varios #
+##########
+6.1 - 05/09/2015: Hijos de Hodir: El Drakkensryd autocompletable por Reisa
+6.2 - 13/09/2015: Battlegrounds: Ajustada la probabilidad de que salten determinados BattleGrounds por Reisa
+6.3 - 16/09/2015: The Light of Dawn: Corregido el tiempo de respawn de Highlord Darion Mograine por Jar
+6.4 - 23/10/2015: Items: Set mantoscuro usable a partir de lvl 60 por Shorak
+
+
+##########
+# Custom #
+##########
+7.1 - 04/09/2015: Implementación de Transfigurar por Gildor
+
+
