@@ -10,7 +10,6 @@
 
 # Set projectname (must be done AFTER setting configurationtypes)
 project(TrinityCore)
-
 # CMake policies (can not be handled elsewhere)
 cmake_minimum_required(VERSION 2.8.9)
 cmake_policy(SET CMP0005 OLD)
@@ -59,7 +58,7 @@ find_package(PCHSupport)
 find_package(OpenSSL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(MySQL)
-
+set (ENV{BOOST_ROOT} "C:/local/boost_1_59_0") 
 include(ConfigureBoost)
 
 if( UNIX )
